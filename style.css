@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+}
+.lp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  height: 500px;
+  width: 800px;
+  background-color: #eee;
+  overflow: hidden;
+}
+.lp .arrow {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  font-size: 30px;
+}
+.lp .arrow:hover {
+  background-color: rgba(200, 255, 200, 0.5);
+  cursor: pointer;
+}
+.lp .arrow-left {
+  transform: translate(5%, -50%);
+  left: 5%;
+}
+.lp .arrow-right {
+  transform: translate(-95%, -50%);
+  left: 95%;
+}
+.lp .books {
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #aaa;
+}
+.lp .book {
+  /* display: inline-block; */
+  height: 300px;
+  width: 200px;
+  /* margin: 0 15px; */
+  background-color: #ccc;
+  border: 2px solid black;
+}
+
+.popup {
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(250, 250, 250, 0.8);
+}
+.popup .popup_s {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 500px;
+  width: 300px;
+  background-color: #eee;
+}
+.popup .book {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 200px;
+  border: 2px solid black;
+}
+.form {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(250, 250, 250, 0.8);
+}
+.form .form__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+  width: 500px;
+  background-color: rgb(152, 175, 139);
+}
+.form .form__container form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 300px;
+  background-color: rgb(114, 58, 58);
+  color: #fff;
+}
+.img {
+  height: 200px;
+  width: 100px;
+  background-color: #fff;
+  transition: 0.2s;
+}
+.button {
+  padding: 10px 20px;
+  display: block;
+  font-size: 18px;
+}
+.img,
+.button {
+  margin: 20px auto;
+}
+.img:hover,
+.button:hover {
+  cursor: pointer;
+}
+.img:hover {
+  box-shadow: 0 0 5px 2px rgb(100, 100, 100);
+}
+.closeme {
+  position: absolute;
+  top: 5%;
+  left: 85%;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  transition: 0.3;
+}
+.closeme:hover {
+  background-color: #b1b1b1;
+  cursor: pointer;
+}
+.closeme p {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hide {
+  display: none;
+}
+.active {
+  background-color: rgb(18, 107, 18);
+  color: #fff;
+}
+.bullet-container {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bullet {
+  margin-right: 14px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+}
+.bullet-active {
+  opacity: 1;
+}
+.bullet:last-child {
+  margin-right: 0px;
+}
+
+.non-visible--left {
+  position: absolute;
+  top: 20%;
+  left: -50%;
+  transform: translate(50%, -20%);
+  opacity: 0;
+}
+.preactivede {
+  position: absolute;
+  top: 20%;
+  left: -25%;
+  transform: translate(25%, -20%);
+}
+.preactive {
+  position: absolute;
+  top: 20%;
+  left: 13%;
+  transform: translate(-13%, -20%);
+}
+.active__book {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+.proactive {
+  position: absolute;
+  top: 20%;
+  left: 87%;
+  transform: translate(-87%, -20%);
+}
+.proactivede {
+  position: absolute;
+  top: 20%;
+  left: 125%;
+  transform: translate(-125%, -20%);
+}
+.non-visible--right {
+  position: absolute;
+  top: 20%;
+  left: 160%;
+  transform: translate(-160%, -20%);
+  opacity: 0;
+}
+.non-visible {
+  position: absolute;
+  top: 20%;
+  left: 190%;
+  transform: translate(-190%, -20%);
+  opacity: 0;
+}
