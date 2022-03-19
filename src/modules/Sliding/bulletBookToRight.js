@@ -1,71 +1,20 @@
 import updateBullet from "../Bullets/updateBullet.js";
-import { getBookCurrent } from "../State.js";
+import { getBookCurrent } from "../states/bookCurrent.js";
+import { bookTotal, books } from "../states/bookTotal.js";
+import bookByChoice from "../states/bookByChoice.js";
 
-const bulletBookToRight = (
-  i,
-  bookTotal,
-  nonActiveLeft,
-  preactivedeBook,
-  preactiveBook,
-  proactiveBook,
-  proactivedeBook,
-  nonActiveRight,
-  activeBook,
-  books
-) => {
+const bulletBookToRight = (i) => {
   let bookCurrent = getBookCurrent();
   bookCurrent <= bookTotal ? (bookCurrent = i) : (bookCurrent = 0);
-  if (bookCurrent === 0) {
-    nonActiveLeft = books[bookTotal - 2];
-    preactivedeBook = books[bookTotal - 1];
-    preactiveBook = books[bookTotal];
-    proactiveBook = books[bookCurrent + 1];
-    proactivedeBook = books[bookCurrent + 2];
-    nonActiveRight = books[bookCurrent + 3];
-  } else if (bookCurrent === 1) {
-    nonActiveLeft = books[bookTotal - 1];
-    preactivedeBook = books[bookTotal];
-    preactiveBook = books[bookCurrent - 1];
-    proactiveBook = books[bookCurrent + 1];
-    proactivedeBook = books[bookCurrent + 2];
-    nonActiveRight = books[bookCurrent + 3];
-  } else if (bookCurrent === 2) {
-    nonActiveLeft = books[bookTotal];
-    preactivedeBook = books[bookCurrent - 2];
-    preactiveBook = books[bookCurrent - 1];
-    proactiveBook = books[bookCurrent + 1];
-    proactivedeBook = books[bookCurrent + 2];
-    nonActiveRight = books[bookCurrent + 3];
-  } else if (bookCurrent > 2 && bookCurrent + 2 < bookTotal) {
-    nonActiveLeft = books[bookCurrent - 3];
-    preactivedeBook = books[bookCurrent - 2];
-    preactiveBook = books[bookCurrent - 1];
-    proactiveBook = books[bookCurrent + 1];
-    proactivedeBook = books[bookCurrent + 2];
-    nonActiveRight = books[bookCurrent + 3];
-  } else if (bookCurrent + 1 < bookTotal) {
-    nonActiveLeft = books[bookCurrent - 3];
-    preactivedeBook = books[bookCurrent - 2];
-    preactiveBook = books[bookCurrent - 1];
-    proactiveBook = books[bookCurrent + 1];
-    proactivedeBook = books[bookCurrent + 2];
-    nonActiveRight = books[bookTotal - bookTotal];
-  } else if (bookCurrent < bookTotal) {
-    nonActiveLeft = books[bookCurrent - 3];
-    preactivedeBook = books[bookCurrent - 2];
-    preactiveBook = books[bookCurrent - 1];
-    proactiveBook = books[bookCurrent + 1];
-    proactivedeBook = books[bookTotal - bookTotal];
-    nonActiveRight = books[bookTotal - bookTotal + 1];
-  } else if (bookCurrent === bookTotal) {
-    nonActiveLeft = books[bookCurrent - 3];
-    preactivedeBook = books[bookCurrent - 2];
-    preactiveBook = books[bookCurrent - 1];
-    proactiveBook = books[bookTotal - bookTotal];
-    proactivedeBook = books[bookTotal - bookTotal + 1];
-    nonActiveRight = books[bookTotal - bookTotal + 2];
-  }
-  activeBook = books[bookCurrent];
+  let {
+    nonActiveLeft,
+    preactivedeBook,
+    preactiveBook,
+    proactiveBook,
+    proactivedeBook,
+    nonActiveRight,
+    activeBook,
+  } = bookByChoice(bookCurrent);
   books.forEach((book) => {
     if (book === nonActiveLeft) {
       book.classList.remove(

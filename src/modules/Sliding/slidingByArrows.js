@@ -1,38 +1,17 @@
 import bulletBookToLeft from "./bulletBookToLeft.js";
 import bulletBookToRight from "./bulletBookToRight.js";
-import { getBookCurrent, setBookCurrent } from "../State.js";
+import { getBookCurrent, setBookCurrent } from "../states/bookCurrent.js";
+import { bookTotal } from "../states/bookTotal.js";
 
-const slidingByArrows = (
-  bookTotal,
-  books,
-  nonActiveLeft,
-  preactivedeBook,
-  preactiveBook,
-  proactiveBook,
-  proactivedeBook,
-  nonActiveRight,
-  activeBook
-) => {
+const slidingByArrows = () => {
   const rightArrow = document.querySelector(".arrow-right");
   const leftArrow = document.querySelector(".arrow-left");
   let bookCurrent;
   rightArrow.addEventListener("click", () => {
     bookCurrent = getBookCurrent();
     bookCurrent < bookTotal ? bookCurrent++ : (bookCurrent = 0);
-    console.log("Sliding " + bookCurrent);
     setBookCurrent(bookCurrent);
-    bulletBookToRight(
-      bookCurrent,
-      bookTotal,
-      nonActiveLeft,
-      preactivedeBook,
-      preactiveBook,
-      proactiveBook,
-      proactivedeBook,
-      nonActiveRight,
-      activeBook,
-      books
-    );
+    bulletBookToRight(bookCurrent);
   });
   leftArrow.addEventListener("click", () => {
     bookCurrent = getBookCurrent();
@@ -42,18 +21,7 @@ const slidingByArrows = (
       bookCurrent = bookTotal;
     }
     setBookCurrent(bookCurrent);
-    bulletBookToLeft(
-      bookCurrent,
-      bookTotal,
-      nonActiveLeft,
-      preactivedeBook,
-      preactiveBook,
-      proactiveBook,
-      proactivedeBook,
-      nonActiveRight,
-      activeBook,
-      books
-    );
+    bulletBookToLeft(bookCurrent);
   });
 };
 export default slidingByArrows;
